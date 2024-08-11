@@ -8,77 +8,140 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 		<style>
+			:root {
+				--primary-color: #6a1b9a;
+				--secondary-color: #ff4081;
+				--bg-gradient: linear-gradient(135deg, #6a1b9a, #f7f7f7);
+				--text-color: #333;
+				--card-bg-color: #ffffff;
+				--card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				--font-family: 'Montserrat', sans-serif;
+			}
+
 			body {
-				font-family: 'Montserrat', sans-serif;
+				font-family: var(--font-family);
 				margin: 0;
 				padding: 0;
-				background: linear-gradient(135deg, #6a1b9a, #f7f7f7);
-				color: #333;
+				background: var(--bg-gradient);
+				color: var(--text-color);
 				line-height: 1.6;
 				position: relative;
 				overflow-x: hidden;
 			}
 
 			.container {
-				max-width: 90%;
-				margin: 20px auto;
-				background-color: #fff;
-				padding: 20px;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+				max-width: 800px;
+				margin: 40px auto;
+				background-color: var(--card-bg-color);
+				padding: 40px;
+				box-shadow: var(--card-shadow);
 				border-radius: 10px;
 				position: relative;
 				z-index: 10;
+				animation: fadeIn 1s ease-in-out;
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
 			}
 
 			.header {
 				text-align: center;
-				margin-bottom: 20px;
+				margin-bottom: 40px;
 			}
 
 			.header h1 {
-				font-size: 24px;
+				font-size: 32px;
 				margin-bottom: 10px;
-				color: #6a1b9a;
+				color: var(--primary-color);
 				text-transform: uppercase;
+				animation: textFadeIn 2s ease-in-out;
+			}
+
+			@keyframes textFadeIn {
+				0% {
+					letter-spacing: 10px;
+					opacity: 0;
+				}
+
+				100% {
+					letter-spacing: normal;
+					opacity: 1;
+				}
 			}
 
 			.header .contact-info {
 				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 10px;
+				justify-content: center;
+				gap: 20px;
 				margin-top: 10px;
+				flex-wrap: wrap;
 			}
 
 			.header .contact-info p {
 				display: flex;
 				align-items: center;
-				font-size: 14px;
+				font-size: 16px;
 				color: #555;
 			}
 
 			.header .contact-info i {
-				color: #6a1b9a;
+				color: var(--primary-color);
 				margin-right: 8px;
+				transition: transform 0.3s ease;
+			}
+
+			.header .contact-info p:hover i {
+				transform: rotate(360deg);
 			}
 
 			.section-title {
-				font-size: 18px;
-				color: #6a1b9a;
+				font-size: 20px;
+				color: var(--primary-color);
 				text-transform: uppercase;
-				margin-bottom: 15px;
-				border-bottom: 2px solid #6a1b9a;
+				margin-bottom: 20px;
+				border-bottom: 2px solid var(--primary-color);
 				padding-bottom: 5px;
+				position: relative;
+			}
+
+			.section-title::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: -2px;
+				width: 0;
+				height: 2px;
+				background-color: var(--secondary-color);
+				animation: underline 1s ease forwards;
+			}
+
+			@keyframes underline {
+				from {
+					width: 0;
+				}
+
+				to {
+					width: 100%;
+				}
 			}
 
 			.section {
-				margin-bottom: 30px;
+				margin-bottom: 40px;
 			}
 
 			.section p,
 			.section ul {
-				font-size: 14px;
-				margin-bottom: 15px;
+				font-size: 16px;
+				margin-bottom: 20px;
 			}
 
 			.section ul {
@@ -87,64 +150,75 @@
 
 			.section ul li {
 				margin-bottom: 10px;
+				position: relative;
+				padding-left: 20px;
+			}
+
+			.section ul li::before {
+				content: '★';
+				position: absolute;
+				left: 0;
+				color: var(--secondary-color);
+				animation: fadeIn 0.5s ease;
 			}
 
 			.card {
-				background-color: #ffffff;
+				background-color: var(--card-bg-color);
 				border-radius: 10px;
-				padding: 15px;
+				padding: 20px;
 				margin-bottom: 20px;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				box-shadow: var(--card-shadow);
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 			}
 
 			.card:hover {
-				transform: translateY(-5px);
+				transform: translateY(-5px) rotate(1deg);
 				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 			}
 
 			a {
-				color: #6a1b9a;
+				color: var(--primary-color);
 				text-decoration: none;
 				font-weight: bold;
 				position: relative;
-				padding-left: 20px;
+				padding-left: 25px;
 				display: inline-block;
+				transition: color 0.3s ease;
 			}
 
 			a i {
 				position: absolute;
 				left: 0;
 				top: 0;
-				font-size: 14px;
-				color: #6a1b9a;
+				font-size: 16px;
+				color: var(--primary-color);
 				transition: transform 0.3s ease;
 			}
 
 			a::after {
 				content: '';
 				position: absolute;
-				left: 20px;
+				left: 25px;
 				bottom: -2px;
 				width: 100%;
 				height: 2px;
-				background-color: #6a1b9a;
+				background-color: var(--primary-color);
 				transform: scaleX(0);
 				transform-origin: right;
 				transition: transform 0.3s ease;
 			}
 
+			a:hover {
+				color: var(--secondary-color);
+			}
+
 			a:hover::after {
 				transform: scaleX(1.2);
-				background-color: #ff4081;
+				background-color: var(--secondary-color);
 			}
 
 			a:hover i {
 				transform: scale(1.4) rotate(20deg);
-			}
-
-			a:hover {
-				color: #4a148c;
 			}
 
 			.particle {
@@ -178,30 +252,45 @@
 				animation-delay: 6s;
 			}
 
-			/* 确保页面内容可以正常滚动 */
 			html,
 			body {
 				height: 100%;
 				overflow-y: auto;
 			}
 
-			/* 媒体查询：优化小屏幕适配 */
 			@media (max-width: 768px) {
 				.header h1 {
-					font-size: 20px;
+					font-size: 24px;
 				}
 
 				.section-title {
-					font-size: 16px;
+					font-size: 18px;
 				}
 
 				.section p,
 				.section ul {
-					font-size: 13px;
+					font-size: 14px;
 				}
 
 				.container {
+					max-width: 90%;
 					padding: 20px;
+				}
+
+				.header .contact-info {
+					gap: 10px;
+				}
+
+				a {
+					padding-left: 20px;
+				}
+
+				a i {
+					font-size: 14px;
+				}
+
+				a::after {
+					left: 20px;
 				}
 			}
 		</style>
@@ -219,30 +308,34 @@
 				<div class="contact-info">
 					<p><i class="fas fa-phone-alt"></i> 13584680671</p>
 					<p><i class="fas fa-envelope"></i> fmxianwen@gmail.com</p>
-					<p><i class="fas fa-map-marker-alt"></i> 中国扬州</p>
-				</div>
-			</div>
+					<p><i class="fas fa-map-marker-alt"></i> 中国扬州
+					<div class="section card">
+						<div class="section-title">个人简介</div>
+						<p>作为一名充满激情的移动端开发工程师，我在 iOS 和 Android 原生开发，以及 Flutter 和 React Native
+							跨平台开发方面积累了丰富的经验。我擅长将复杂的技术需求转化为直观、用户友好的应用，尤其在性能优化和架构设计上有着独到的见解。在多个项目中，我不仅推动了从概念到上线的全流程，还致力于通过持续的技术改进和创新，为用户和客户提供卓越的使用体验。
+						</p>
+						<p>我的工作不仅仅是写代码，我更关注如何通过技术提升产品的核心竞争力。我喜欢挑战自我，探索新技术，并将这些技术应用到实际项目中，帮助团队实现更高效的开发和更稳定的产品。我相信，技术的价值在于不断为用户创造价值，而我正是这样一位能够不断为产品注入技术活力的工程师。
+						</p>
+					</div>
 
-			<div class="section card">
-				<div class="section-title">个人简介</div>
-				<p>作为一名充满激情的移动端开发工程师，我在 iOS 和 Android 原生开发，以及 Flutter 和 React Native
-					跨平台开发方面积累了丰富的经验。我擅长将复杂的技术需求转化为直观、用户友好的应用，尤其在性能优化和架构设计上有着独到的见解。在多个项目中，我不仅推动了从概念到上线的全流程，还致力于通过持续的技术改进和创新，为用户和客户提供卓越的使用体验。
-				</p>
-				<p>我的工作不仅仅是写代码，我更关注如何通过技术提升产品的核心竞争力。我喜欢挑战自我，探索新技术，并将这些技术应用到实际项目中，帮助团队实现更高效的开发和更稳定的产品。我相信，技术的价值在于不断为用户创造价值，而我正是这样一位能够不断为产品注入技术活力的工程师。
-				</p>
-			</div>
+					<div class="section card">
+						<div class="section-title">专业技能</div>
+						<ul>
+							<li><strong>移动端开发：</strong>精通 iOS 和 Android 原生开发，熟练使用 Swift、Objective-C 和 Java
+								等编程语言。在多个大型项目中，成功构建并优化了从 UI 到后台服务的完整移动应用架构。</li>
+							<li><strong>跨平台解决方案：</strong>深入掌握 Flutter 和 React Native
+								跨平台开发技术，能够高效交付在多个操作系统上无缝运行的应用程序。我通过这些技术显著缩短了开发周期，并降低了维护成本。</li>
+							<li><strong>性能优化：</strong>拥有丰富的移动应用性能优化经验，擅长识别和解决应用启动速度、内存占用等性能瓶颈问题。曾通过二进制重排、内存优化等手段，将应用启动时间减少30%以上。
+							</li>
+							<li><strong>架构设计与代码质量：</strong>具备强大的系统架构设计能力，致力于构建可扩展、易维护的代码结构。熟悉设计模式和最佳实践，持续提升代码质量，确保项目的长期可持续发展。
+							</li>
+							<li><strong>工具与技术栈：</strong>精通 Xcode、Android Studio、Visual Studio Code 等开发工具，熟练使用 Git、SVN
+								进行版本控制。通过工具链优化和自动化流程，提升了团队整体开发效率。</li>
+							<li><strong>项目管理与协作：</strong>具备良好的项目管理能力，善于跨团队协作，推动项目顺利进行。注重需求分析与沟通，确保开发目标与业务需求的紧密对接。</li>
+						</ul>
+					</div>
 
-			<div class="section card">
-				<div class="section-title">专业技能</div>
-				<ul>
-					<li><strong>移动端开发：</strong>精通 iOS 和 Android 原生开发，熟练使用 Swift、Objective-C 和 Java
-						等编程语言。在多个大型项目中，成功构建并优化了从 UI 到后台服务的完整移动应用架构。</li>
-					<li><strong>跨平台解决方案：</strong>深入掌握 Flutter 和 React Native
-						跨平台开发技术，能够高效交付在多个操作系统上无缝运行的应用程序。我通过这些技术显著缩短了开发周期，并降低了维护成本。</li>
-					<li 性能优化：拥有丰富的移动应用性能优化经验，擅长识别和解决应用启动速度、内存占用等性能瓶颈问题。曾通过二进制重排、内存优化等手段，将应用启动时间减少30%以上。
-						架构设计与代码质量：具备强大的系统架构设计能力，致力于构建可扩展、易维护的代码结构。熟悉设计模式和最佳实践，持续提升代码质量，确保项目的长期可持续发展。 工具与技术栈：精通
-						Xcode、Android Studio、Visual Studio Code 等开发工具，熟练使用 Git、SVN 进行版本控制。通过工具链优化和自动化流程，提升了团队整体开发效率。
-						项目管理与协作：具备良好的项目管理能力，善于跨团队协作，推动项目顺利进行。注重需求分析与沟通，确保开发目标与业务需求的紧密对接。 <div class="section card">
+					<div class="section card">
 						<div class="section-title">开源项目</div>
 						<ul>
 							<li><strong><a href="https://github.com/xianwen-zhu/flutter_fancy_toast.git"
@@ -255,65 +348,62 @@
 										Performance</a></strong>：一款专注于移动应用性能监测与优化的工具，旨在帮助开发者识别并解决性能瓶颈。通过该工具，开发者可以实时监控应用的性能表现，迅速定位问题并进行优化。项目通过对内存、CPU
 								和网络使用情况的深入分析，帮助团队显著提高了应用的稳定性和响应速度。</li>
 						</ul>
-			</div>
+					</div>
 
-			<div class="section card">
-				<div class="section-title">技术文章</div>
-				<ul>
-					<li><strong><a href="https://www.yuque.com/laomalaixunshan/bgd52k/xmhae6?singleDoc#"
-								target="_blank"><i class="fas fa-link"></i> iOS 启动优化之 Clang
-								插桩实现二进制重排</a></strong>：这篇文章详细介绍了如何利用 Clang 插桩技术对 iOS
-						应用进行二进制重排，从而优化应用的启动速度。通过深入分析启动过程中页面调度的原理，并结合实际项目中的案例，我提出了一套行之有效的优化方案。该文章不仅为开发者提供了具体的实现步骤，还分享了性能优化中的思考与经验，在技术社区内获得了积极反馈和广泛引用。
-					</li>
-				</ul>
-			</div>
+					<div class="section card">
+						<div class="section-title">技术文章</div>
+						<ul>
+							<li><strong><a href="https://www.yuque.com/laomalaixunshan/bgd52k/xmhae6?singleDoc#"
+										target="_blank"><i class="fas fa-link"></i> iOS 启动优化之 Clang
+										插桩实现二进制重排</a></strong>：这篇文章详细介绍了如何利用 Clang 插桩技术对 iOS
+								应用进行二进制重排，从而优化应用的启动速度。通过深入分析启动过程中页面调度的原理，并结合实际项目中的案例，我提出了一套行之有效的优化方案。该文章不仅为开发者提供了具体的实现步骤，还分享了性能优化中的思考与经验，在技术社区内获得了积极反馈和广泛引用。
+							</li>
+						</ul>
+					</div>
 
-			<div class="section card">
-				<div class="section-title">工作经历</div>
-				<div>
-					<h3>无锡锐祺电气技术有限公司</h3>
-					<p><strong>职位：</strong>移动端开发工程师（iOS/Flutter/Android/React Native）</p>
-					<p><strong>时间：</strong>2023年7月—至今</p>
-					<ul>
-						<li>主导“锐祺智能”项目的地图模块优化，通过精细化的内存管理和算法优化，成功将应用的响应时间缩短了20%，极大提升了用户体验。</li>
-						<li>负责新需求的迭代开发和 Bug 修复，确保每次版本发布的稳定性和性能提升，同时优化了 CI/CD 流程，加快了发布速度。</li>
-						<li>全程负责 iOS 和 Android 应用的上架审核和发布过程，通过对应用权限和隐私合规的全面审查，确保应用顺利通过各平台的严格审核。</li>
-					</ul>
-				</div>
+					<div class="section card">
+						<div class="section-title">工作经历</div>
+						<div>
+							<h3>无锡锐祺电气技术有限公司</h3>
+							<p><strong>职位：</strong>移动端开发工程师（iOS/Flutter/Android/React Native）</p>
+							<p><strong>时间：</strong>2023年7月—至今</p>
+							<ul>
+								<li>主导“锐祺智能”项目的地图模块优化，通过精细化的内存管理和算法优化，成功将应用的响应时间缩短了20%，极大提升了用户体验。</li>
+								<li>负责新需求的迭代开发和 Bug 修复，确保每次版本发布的稳定性和性能提升，同时优化了 CI/CD 流程，加快了发布速度。</li>
+								<li>全程负责 iOS 和 Android 应用的上架审核和发布过程，通过对应用权限和隐私合规的全面审查，确保应用顺利通过各平台的严格审核。</li>
+							</ul>
+						</div>
 
-				<div>
-					<h3>国泰新点软件股份有限公司</h3>
-					<p><strong>职位：</strong>iOS 开发工程师 / Flutter 开发</p>
-					<p><strong>时间：</strong>2019年6月—2023年7月</p>
-					<ul>
-						<li>作为核心开发人员，负责“智慧姑苏”项目中多个关键模块的开发，包括即时通讯、考勤签到、百度地图和人脸识别的集成，确保了应用的高效和稳定运行。</li>
-						<li>优化 H5 页面加载性能，通过引入异步加载和缓存技术，将页面加载时间减少了40%，显著改善了用户的使用体验。</li>
-						<li>领导团队进行 KSCrash 日志分析和 Bug 修复，成功将应用崩溃率降低了50%以上，提高了应用的稳定性和用户满意度。</li>
-						<li>在“重庆公共资源”项目中，主导了多个原生页面的开发，并集成了活体检测、OCR 识别等高级功能，确保了应用的高性能和易用性。</li>
-					</ul>
-					<ul>
-						<li><a href="https://apps.apple.com/cn/app/%E9%87%8D%E5%BA%86%E5%85%AC%E5%85%B1%E8%B5%84%E6%BA%90/id1475225955"
-								target="_blank"><i class="fas fa-link"></i> 查看重庆公共资源应用程序</a></li>
-					</ul>
-				</div>
-			</div>
+						<div>
+							<h3>国泰新点软件股份有限公司</h3>
+							<p><strong>职位：</strong>iOS 开发工程师 / Flutter 开发</p>
+							<p><strong>时间：</strong>2019年6月—2023年7月</p>
+							<ul>
+								<li>作为核心开发人员，负责“智慧姑苏”项目中多个关键模块的开发，包括即时通讯、考勤签到、百度地图和人脸识别的集成，确保了应用的高效和稳定运行。</li>
+								<li>优化 H5 页面加载性能，通过引入异步加载和缓存技术，将页面加载时间减少了40%，显著改善了用户的使用体验。</li>
+								<li>领导团队进行 KSCrash 日志分析和 Bug 修复，成功将应用崩溃率降低了50%以上，提高了应用的稳定性和用户满意度。</li>
+								<li>在“重庆公共资源”项目中，主导了多个原生页面的开发，并集成了活体检测、OCR 识别等高级功能，确保了应用的高性能和易用性。</li>
+							</ul>
+							<ul>
+								<li><a href="https://apps.apple.com/cn/app/%E9%87%8D%E5%BA%86%E5%85%AC%E5%85%B1%E8%B5%84%E6%BA%90/id1475225955"
+										target="_blank"><i class="fas fa-link"></i> 查看重庆公共资源应用程序</a></li>
+							</ul>
+						</div>
+					</div>
 
-			<div class="section card">
-				<div class="section-title">自我评价</div>
-				<ul>
-					<li><strong>严谨负责：</strong>我在工作中注重细节，追求卓越，始终坚持高标准的代码质量和用户体验。无论是开发新功能还是优化现有系统，我都能够准确评估技术风险，并确保项目按时、高质量交付。
-					</li>
-					<li><strong>持续学习：</strong>作为一个热爱技术的人，我不断学习并跟进最新的行业趋势和技术进展。通过自学和参加专业培训，我能够迅速掌握并应用新技术，推动团队在技术上的不断进步。
-					</li>
-					<li><strong>团队协作：</strong>我深信团队的力量，并且在工作中善于沟通和协作，能够有效推动跨部门的项目进展。我的团队合作能力不仅体现在项目的成功交付上，也体现在帮助同事提升技能、共同成长上。
-					</li>
-					<li><strong>创新驱动：</strong>我喜欢挑战现状，乐于尝试新的方法和工具，致力于通过技术创新为项目带来实际价值。我不仅关注当前任务的完成，更注重如何通过技术提升产品的整体竞争力。
-					</li>
-					<li><strong>用户导向：</strong>我始终将用户体验置于首位，从需求分析到功能实现，我都确保每个细节都能满足用户需求，并且不断优化，致力于为用户提供最佳的应用体验。</li>
-				</ul>
-			</div>
-
-			<p><strong>感谢您抽出时间阅读我的简历，如果您觉得我的背景与技能符合贵公司的需求，请随时联系我！期待与您进一步沟通。</strong></p>
-		</div>
+					<div class="section card">
+						<div class="section-title">自我评价</div>
+						<ul>
+							<li><strong>严谨负责：</strong>我在工作中注重细节，追求卓越，始终坚持高标准的代码质量和用户体验。无论是开发新功能还是优化现有系统，我都能够准确评估技术风险，并确保项目按时、高质量交付。
+							</li>
+							<li><strong>持续学习：</strong>作为一个热爱技术的人，我不断学习并跟进最新的行业趋势和技术进展。通过自学和参加专业培训，我能够迅速掌握并应用新技术，推动团队在技术上的不断进步。
+							</li>
+							<li><strong>团队协作：</strong>我深信团队的力量，并且在工作中善于沟通和协作，能够有效推动跨部门的项目进展。我的团队合作能力不仅体现在项目的成功交付上，也体现在帮助同事提升技能、共同成长上。
+							</li>
+							<li><strong>创新驱动：</strong>我喜欢挑战现状，乐于尝试新的方法和工具，致力于通过技术创新为项目带来实际价值。我不仅关注当前任务的完成，更注重如何通过技术提升产品的整体竞争力。
+							</li>
+							<li><strong>用户导向：</strong>我始终将用户体验置于首位，从需求分析到功能实现，我都确保每个细节都能满足用户需求，并且不断优化，致力于为用户提供最佳的应用体验。
+								<p><strong>感谢您抽出时间阅读我的简历，如果您觉得我的背景与技能符合贵公司的需求，请随时联系我！期待与您进一步沟通。</strong></p>
+					</div>
 	</body>
 </html>
