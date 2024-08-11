@@ -20,10 +20,10 @@
 			}
 
 			.container {
-				max-width: 800px;
-				margin: 40px auto;
+				max-width: 90%;
+				margin: 20px auto;
 				background-color: #fff;
-				padding: 40px;
+				padding: 20px;
 				box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 				border-radius: 10px;
 				position: relative;
@@ -32,11 +32,11 @@
 
 			.header {
 				text-align: center;
-				margin-bottom: 40px;
+				margin-bottom: 20px;
 			}
 
 			.header h1 {
-				font-size: 32px;
+				font-size: 24px;
 				margin-bottom: 10px;
 				color: #6a1b9a;
 				text-transform: uppercase;
@@ -44,15 +44,16 @@
 
 			.header .contact-info {
 				display: flex;
-				justify-content: center;
-				gap: 20px;
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
 				margin-top: 10px;
 			}
 
 			.header .contact-info p {
 				display: flex;
 				align-items: center;
-				font-size: 16px;
+				font-size: 14px;
 				color: #555;
 			}
 
@@ -62,22 +63,22 @@
 			}
 
 			.section-title {
-				font-size: 20px;
+				font-size: 18px;
 				color: #6a1b9a;
 				text-transform: uppercase;
-				margin-bottom: 20px;
+				margin-bottom: 15px;
 				border-bottom: 2px solid #6a1b9a;
 				padding-bottom: 5px;
 			}
 
 			.section {
-				margin-bottom: 40px;
+				margin-bottom: 30px;
 			}
 
 			.section p,
 			.section ul {
-				font-size: 16px;
-				margin-bottom: 20px;
+				font-size: 14px;
+				margin-bottom: 15px;
 			}
 
 			.section ul {
@@ -91,7 +92,7 @@
 			.card {
 				background-color: #ffffff;
 				border-radius: 10px;
-				padding: 20px;
+				padding: 15px;
 				margin-bottom: 20px;
 				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -107,7 +108,7 @@
 				text-decoration: none;
 				font-weight: bold;
 				position: relative;
-				padding-left: 25px;
+				padding-left: 20px;
 				display: inline-block;
 			}
 
@@ -115,7 +116,7 @@
 				position: absolute;
 				left: 0;
 				top: 0;
-				font-size: 16px;
+				font-size: 14px;
 				color: #6a1b9a;
 				transition: transform 0.3s ease;
 			}
@@ -123,7 +124,7 @@
 			a::after {
 				content: '';
 				position: absolute;
-				left: 25px;
+				left: 20px;
 				bottom: -2px;
 				width: 100%;
 				height: 2px;
@@ -183,6 +184,26 @@
 				height: 100%;
 				overflow-y: auto;
 			}
+
+			/* 媒体查询：优化小屏幕适配 */
+			@media (max-width: 768px) {
+				.header h1 {
+					font-size: 20px;
+				}
+
+				.section-title {
+					font-size: 16px;
+				}
+
+				.section p,
+				.section ul {
+					font-size: 13px;
+				}
+
+				.container {
+					padding: 20px;
+				}
+			}
 		</style>
 	</head>
 
@@ -218,28 +239,24 @@
 						等编程语言。在多个大型项目中，成功构建并优化了从 UI 到后台服务的完整移动应用架构。</li>
 					<li><strong>跨平台解决方案：</strong>深入掌握 Flutter 和 React Native
 						跨平台开发技术，能够高效交付在多个操作系统上无缝运行的应用程序。我通过这些技术显著缩短了开发周期，并降低了维护成本。</li>
-					<li><strong>性能优化：</strong>拥有丰富的移动应用性能优化经验，擅长识别和解决应用启动速度、内存占用等性能瓶颈问题。曾通过二进制重排、内存优化等手段，将应用启动时间减少30%以上。
-					</li>
-					<li><strong>架构设计与代码质量：</strong>具备强大的系统架构设计能力，致力于构建可扩展、易维护的代码结构。熟悉设计模式和最佳实践，持续提升代码质量，确保项目的长期可持续发展。
-					</li>
-					<li><strong>工具与技术栈：</strong>精通 Xcode、Android Studio、Visual Studio Code 等开发工具，熟练使用 Git、SVN
-						进行版本控制。通过工具链优化和自动化流程，提升了团队整体开发效率。</li>
-					<li><strong>项目管理与协作：</strong>具备良好的项目管理能力，善于跨团队协作，推动项目顺利进行。注重需求分析与沟通，确保开发目标与业务需求的紧密对接。</li>
-				</ul>
+					<li 性能优化：拥有丰富的移动应用性能优化经验，擅长识别和解决应用启动速度、内存占用等性能瓶颈问题。曾通过二进制重排、内存优化等手段，将应用启动时间减少30%以上。
+						架构设计与代码质量：具备强大的系统架构设计能力，致力于构建可扩展、易维护的代码结构。熟悉设计模式和最佳实践，持续提升代码质量，确保项目的长期可持续发展。 工具与技术栈：精通
+						Xcode、Android Studio、Visual Studio Code 等开发工具，熟练使用 Git、SVN 进行版本控制。通过工具链优化和自动化流程，提升了团队整体开发效率。
+						项目管理与协作：具备良好的项目管理能力，善于跨团队协作，推动项目顺利进行。注重需求分析与沟通，确保开发目标与业务需求的紧密对接。 <div class="section card">
+						<div class="section-title">开源项目</div>
+						<ul>
+							<li><strong><a href="https://github.com/xianwen-zhu/flutter_fancy_toast.git"
+										target="_blank"><i class="fas fa-link"></i> Flutter Fancy
+										Toast</a></strong>：自主开发的 Flutter
+								弹窗组件库，提供丰富的样式和动画效果，帮助开发者简化弹窗功能的实现。该项目受到社区广泛关注，并被多个开源项目和商业应用集成，显著提升了 Flutter 开发的效率和可用性。
+							</li>
+							<li><strong><a href="https://github.com/xianwen-zhu/Performance.git" target="_blank"><i
+											class="fas fa-link"></i>
+										Performance</a></strong>：一款专注于移动应用性能监测与优化的工具，旨在帮助开发者识别并解决性能瓶颈。通过该工具，开发者可以实时监控应用的性能表现，迅速定位问题并进行优化。项目通过对内存、CPU
+								和网络使用情况的深入分析，帮助团队显著提高了应用的稳定性和响应速度。</li>
+						</ul>
 			</div>
 
-			<div class="section card">
-				<div class="section-title">开源项目</div>
-				<ul>
-					<li><strong><a href="https://github.com/xianwen-zhu/flutter_fancy_toast.git" target="_blank"><i
-									class="fas fa-link"></i> Flutter Fancy Toast</a></strong>：自主开发的 Flutter
-						弹窗组件库，提供丰富的样式和动画效果，帮助开发者简化弹窗功能的实现。该项目受到社区广泛关注，并被多个开源项目和商业应用集成，显著提升了 Flutter 开发的效率和可用性。</li>
-					<li><strong><a href="https://github.com/xianwen-zhu/Performance.git" target="_blank"><i
-									class="fas fa-link"></i>
-								Performance</a></strong>：一款专注于移动应用性能监测与优化的工具，旨在帮助开发者识别并解决性能瓶颈。通过该工具，开发者可以实时监控应用的性能表现，迅速定位问题并进行优化。项目通过对内存、CPU
-						和网络使用情况的深入分析，帮助团队显著提高了应用的稳定性和响应速度。</li>
-				</ul>
-			</div>
 			<div class="section card">
 				<div class="section-title">技术文章</div>
 				<ul>
